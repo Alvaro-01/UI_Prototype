@@ -9,7 +9,7 @@ public class TrainingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training);
-        getSupportActionBar().setTitle("Settings Training");
+        getSupportActionBar().setTitle("Training");
 
 
     }

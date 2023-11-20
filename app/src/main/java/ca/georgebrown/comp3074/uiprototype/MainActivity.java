@@ -8,13 +8,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button analytic, monitor, settings, training;
+    private Button analytic, monitor, settings, training, credits;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        credits = findViewById(R.id.credits);
+        credits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, CreditsActivity.class);
+                startActivity(i);
+            }
+        });
 
         analytic = findViewById(R.id.button1);
         analytic.setOnClickListener(new View.OnClickListener() {

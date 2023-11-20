@@ -9,7 +9,7 @@ public class MonitoringActivity  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitor);
-        getSupportActionBar().setTitle("Monitoring Activity");
+        getSupportActionBar().setTitle("Monitoring");
 
 
     }
