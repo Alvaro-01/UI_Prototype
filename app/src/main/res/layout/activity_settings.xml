@@ -17,12 +17,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/faq3"
+        android:id="@+id/config"
         android:layout_width="139dp"
         android:layout_height="128dp"
         android:layout_marginStart="41dp"
         android:layout_marginTop="316dp"
-        android:text="AI Behavior"
+        android:text="AI Configuration"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
