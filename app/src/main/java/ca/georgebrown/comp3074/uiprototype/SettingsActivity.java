@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private Button config;
+    private Button config, faq;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -22,6 +22,15 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(SettingsActivity.this, ConfigurationActivity.class);
+                startActivity(i);
+            }
+        });
+
+        faq = findViewById(R.id.faq);
+        faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SettingsActivity.this, FAQActivity.class);
                 startActivity(i);
             }
         });
