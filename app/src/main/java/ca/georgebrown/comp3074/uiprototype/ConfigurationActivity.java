@@ -1,8 +1,13 @@
 package ca.georgebrown.comp3074.uiprototype;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,32 +15,40 @@ import java.util.List;
 public class ConfigurationActivity extends AppCompatActivity {
 
     private ListView listView;
-    private ArrayAdapter<String> adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
         getSupportActionBar().setTitle("Configuration");
-        listView = findViewById(R.id.listView);
 
+        Button add,delete;
+        EditText et_category,et_name,et_number;
+        ListView lv_menulist;
 
-        // Create sample data
-        List<String> items = generateSampleData();
+        add = findViewById(R.id.add);
+        delete = findViewById(R.id.delete);
 
-        // Create and set up the adapter
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
-        listView.setAdapter(adapter);
-    }
+        et_category = findViewById(R.id.et_category);
+        et_name = findViewById(R.id.et_name);
+        et_number = findViewById(R.id.et_number);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-    private List<String> generateSampleData() {
-        List<String> items = new ArrayList<>();
-        items.add("Category       Name                 Price");
-        items.add("Appetizer       Bruschetta       $8.99");
-        items.add("Main Course   Spaghetti Bolognese   $14.99");
-        items.add("Dessert            Tiramisu         $6.99");
-        // Add more items as needed
-        return items;
+                try {
+                    String category = et_category.getText().toString();
+                    String name = et_name.getText().toString();
+                    int number = Integer.parseInt(et_number.getText().toString());
+
+                    MenuModel menuModel = new MenuModel(category, name, number);
+                }catch (Exception e){
+                    Toast.makeText(ConfigurationActivity.this,"error creating item",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
 

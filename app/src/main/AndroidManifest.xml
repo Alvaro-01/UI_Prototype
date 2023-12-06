@@ -37,10 +37,7 @@
             android:exported="false"
             android:parentActivityName=".MainActivity"
             />
-        <activity android:name=".EditItemsActivity"
-            android:exported="false"
-            android:parentActivityName=".ConfigurationActivity"
-            />
+
         <activity
             android:name=".MainActivity"
             android:exported="false"
@@ -49,7 +46,7 @@
         <activity
             android:name=".ConfigurationActivity"
             android:exported="false"
-            android:parentActivityName=".LoginActivity"
+            android:parentActivityName=".MainActivity"
             />
 
         <activity
