@@ -16,8 +16,9 @@ public class ConfigurationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
-
+        getSupportActionBar().setTitle("Configuration");
         listView = findViewById(R.id.listView);
+
 
         // Create sample data
         List<String> items = generateSampleData();
@@ -36,4 +37,6 @@ public class ConfigurationActivity extends AppCompatActivity {
         // Add more items as needed
         return items;
     }
+
+
 }
