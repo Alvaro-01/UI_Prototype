@@ -53,6 +53,12 @@
             />
 
         <activity
+            android:name=".FAQActivity"
+            android:exported="false"
+            android:parentActivityName=".LoginActivity"
+            />
+
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
