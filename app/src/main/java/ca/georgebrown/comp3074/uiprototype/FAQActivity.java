@@ -11,6 +11,7 @@ import java.util.List;
 
 public class FAQActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,4 +19,6 @@ public class FAQActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("FAQ");
 
     }
+
 }
+

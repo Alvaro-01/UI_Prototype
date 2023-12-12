@@ -30,7 +30,7 @@
         android:background="@drawable/circle_shape"
         android:gravity="center"
         android:text="Avg Call Time: 1 MIN 30 SEC"
-        android:textColor="#FC0A0A"
+        android:textColor="#0000FF"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +44,7 @@
         android:background="@drawable/circle_shape"
         android:gravity="center"
         android:text="Missed Calls : 0"
-        android:textColor="#24FC0A"
+        android:textColor="#FC0A0A"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,7 +58,7 @@
         android:background="@drawable/circle_shape"
         android:gravity="center"
         android:text="Number of Calls : 10"
-        android:textColor="#24FC0A"
+        android:textColor="#00FF00"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

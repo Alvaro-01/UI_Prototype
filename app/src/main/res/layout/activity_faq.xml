@@ -10,11 +10,91 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-black"
         android:text="FREQUENTLY ASKED QUESTION"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="374dp"
+        android:layout_height="181dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="29dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="We’re here to help you with anything and everything on AI Call Assist"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/search"
+        android:padding="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/searchButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="@+id/searchEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+         />
+
+
+
+    <Button
+        android:id="@+id/myButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Message"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="386dp"
+        android:layout_height="422dp"
+        android:layout_marginTop="208dp"
+        android:layout_marginEnd="29dp"
+        android:fontFamily="serif"
+        android:text="
+Q: What is an AI Call Assist system?
+\nA: An AI Call Assist system is a technology
+that uses artificial intelligence to help manage and handle incoming calls,
+assisting callers with queries, directing them to the right department or
+information, and providing support through automated processes.\n\n
+
+\nQ: How does AI Call Assist work?
+\nA: It operates through advanced algorithms
+and natural language processing (NLP) to understand caller inquiries. It can
+provide pre-recorded or synthesized responses, route calls to appropriate
+agents, or execute automated tasks based on the conversation.\n\n"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
