@@ -14,9 +14,6 @@ import java.util.List;
 
 public class ConfigurationActivity extends AppCompatActivity {
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,40 +37,57 @@ public class ConfigurationActivity extends AppCompatActivity {
         List<MenuModel> items = dbHelper.getAllItems();
 
         // Create an ArrayAdapter and set it to the ListView
-        ArrayAdapter<MenuModel> menuArrayAdapter = new ArrayAdapter<>(ConfigurationActivity.this, android.R.layout.simple_list_item_1, items);
-        lv_menulist.setAdapter(menuArrayAdapter);
+        MenuAdapter menuAdapter = new MenuAdapter(ConfigurationActivity.this, items);
+        lv_menulist.setAdapter(menuAdapter);
 
 
         //clicking add button
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 MenuModel menuModel;
                 try {
+                    int id = 0;
                     String category = et_category.getText().toString();
                     String name = et_name.getText().toString();
                     int number = Integer.parseInt(et_number.getText().toString());
 
-                    menuModel = new MenuModel(category, name, number);
+                    menuModel = new MenuModel(id, category, name, number);
 
                     DBHelper dbHelper = new DBHelper(ConfigurationActivity.this);
                     boolean success = dbHelper.addOne(menuModel);
                     Toast.makeText(ConfigurationActivity.this,"Success ="+success,Toast.LENGTH_SHORT).show();
 
+                    // Retrieve the updated list of items from the database
+                    List<MenuModel> updatedItems = dbHelper.getAllItems();
+
+                    // Create a new MenuAdapter with the updated list and set it to the ListView
+                    MenuAdapter updatedMenuAdapter = new MenuAdapter(ConfigurationActivity.this, updatedItems);
+                    lv_menulist.setAdapter(updatedMenuAdapter);
+
                 }catch (Exception e){
                     Toast.makeText(ConfigurationActivity.this,"error creating item",Toast.LENGTH_SHORT).show();
-
                 }
-
-
-
-
-
             }
         });
 
+        //clicking delete button
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBHelper dbHelper = new DBHelper(ConfigurationActivity.this);
+                for (int id : menuAdapter.getSelectedIds()) {
+                    dbHelper.deleteOne(id);
+                }
+                // Retrieve the updated list of items from the database
+                List<MenuModel> updatedItems = dbHelper.getAllItems();
+
+                // Create a new MenuAdapter with the updated list and set it to the ListView
+                MenuAdapter updatedMenuAdapter = new MenuAdapter(ConfigurationActivity.this, updatedItems);
+                lv_menulist.setAdapter(updatedMenuAdapter);
+
+                Toast.makeText(ConfigurationActivity.this,"Deleted",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
-
-
 }

@@ -34,7 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE_QUERY = "CREATE TABLE " + TABLE_NAME + "("
-                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_ID + " INTEGER PRIMARY KEY,"
                 + COLUMN_CATEGORY + " TEXT,"
                 + COLUMN_NAME + " TEXT,"
                 + COLUMN_PRICE + " TEXT"
@@ -42,7 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_QUERY);
     }
 
-    // Upgrading Database
+    // Updating Database
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if exists and recreate the table
@@ -54,6 +54,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+        cv.put(COLUMN_ID, menuModel.getId());
         cv.put(COLUMN_CATEGORY, menuModel.getCategory());
         cv.put(COLUMN_NAME, menuModel.getName());
         cv.put(COLUMN_PRICE, menuModel.getPrice());
@@ -64,7 +65,13 @@ public class DBHelper extends SQLiteOpenHelper {
         }else{
             return true;
         }
+    }
 
+    public boolean deleteOne(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int deletedRows = db.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[] { String.valueOf(id) });
+        db.close();
+        return deletedRows > 0;
     }
 
     public List<MenuModel> getAllItems() {
@@ -78,11 +85,12 @@ public class DBHelper extends SQLiteOpenHelper {
          if(cursor.moveToFirst()){
              do{
 
+                 int menuId = cursor.getInt(0);
                  String menuCategory = cursor.getString(1);
                  String menuName = cursor.getString(2);
                  int menuPrice = cursor.getInt(3);
 
-                 MenuModel newItem = new MenuModel(menuCategory,menuName,menuPrice);
+                 MenuModel newItem = new MenuModel(menuId, menuCategory,menuName,menuPrice);
                  returnList.add(newItem);
              }while (cursor.moveToNext());
 

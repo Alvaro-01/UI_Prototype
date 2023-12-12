@@ -1,14 +1,23 @@
 package ca.georgebrown.comp3074.uiprototype;
 
 public class MenuModel {
+
+    private int id;
     private String category;
     private String name;
     private int price;
 
-    public MenuModel (String category,String name, int price){
+    private boolean isSelected;
+
+    public MenuModel (int id, String category,String name, int price){
+        this.id=id;
         this.category=category;
         this.name=name;
         this.price=price;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override
@@ -18,6 +27,10 @@ public class MenuModel {
                 ", Name='" + name + '\'' +
                 ", Price=" + price +
                 '}';
+    }
+
+    public boolean isSelected() {
+        return isSelected;
     }
 
     public String getCategory() {
@@ -42,5 +55,9 @@ public class MenuModel {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 }
